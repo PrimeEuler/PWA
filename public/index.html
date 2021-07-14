@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="keystore.webmanifest">
+  <link rel="stylesheet" href="css/keystore.css">
+  <title>Keystore</title>
+</head>
+<body>
+<div hidden id="spinner"></div>
+<!-- navigation -->
+<div id="Sidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#/profile">Profile</a>
+  <a href="#/ca">CA</a>
+  <a href="#/csr">CSR</a>
+  <a href="#/crt">CRT</a>
+  <a href="#/db">DB</a>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<!--https://127.0.0.1:3001/ main panel -->
+<div id="main" class="panel"  >
+  <!--user-->
+    <p>
+      <img id='avatar' src="/icon/default.svg" class='avatar' title="sign in/out"  style="cursor:pointer" onclick="signInOut()" />
+      <div id=name></div>
+      <div id=email></div>
+      <div id="cache"  style="display:none;" >offline: using cached credentials</div>
+    </p>
+    <div id="profile" class="nav-content" >
+      <form id="PKCS#10" action="javascript:void(0);">
+        <fieldset>
+          <legend><a name="input">CSR X.509 Input Data:</a></legend>
+
+          <p><label for="commonName">Host:</label><br>
+          <input 	type="text"
+          		id="commonName"
+          		title="Your host name"
+          		placeholder="host.local"
+          		size="50" required></p>
+
+          <p><label for="subjectAltName_email">Email:</label><br>
+          <input 	type="email"
+          		id="subjectAltName_email"
+          		title="Your email address"
+          		placeholder="jane.user@example.com"
+          		size="50" required></p>
+
+          <p><label for="subjectAltName_dns">DNS:</label><br>
+          <input 	type="text"
+          		id="subjectAltName_dns"
+          		title="Your domain name"
+          		placeholder="host.local"
+          		size="50" ></p>
+
+          <p><label for="organizationName">Organisation:</label><br>
+          <input 	type="text"
+          		id="organizationName"
+          		title="The name of company or organization you work for or are associated with"
+          		placeholder="Example, Inc."
+          		size="50" ></p>
+
+          <p><label for="organizationalUnitName">Organisational Unit:</label><br>
+          <input 	type="text"
+          		id="organizationalUnitName"
+          		title="The department, group or division you work in"
+          		placeholder="Dept. of Examples"
+          		size="50" ></p>
+
+          <p><label for="localityName">Locality:</label><br>
+          <input 	type="text"
+          		id="localityName"
+          		title="The city and state your company or organization's office is located in"
+          		placeholder="Example City and State"
+          		size="50" ></p>
+
+
+          <p><label for="countryName">Country:</label><br>
+          <input 	type="text"
+          		id="countryName"
+          		title="The two-letter UPPERCASE code of the country your company or organization operates in"
+          		placeholder="US"
+          		pattern="[A-Z]{2}"
+          		size="3" maxlength="2" style="inline-block"></p>
+
+        </fieldset>
+      </form>
+    </div>
+    <div id="csr" class="nav-content" >
+      <form id="PKCS#10-PEM" action="javascript:void(0);" >
+        <fieldset>
+          <legend>PEM Output:</legend>
+          <button id="gen_csr" class=' active' onclick="javascript:create_new_csr()">&uarr; Generate Keypair & CSR &darr;</button>
+          <p><label for="new_csr">CSR:</label><br>
+          <textarea id="new_csr" cols="68" rows="12" ></textarea><br>
+          </p>
+
+          <p><label for="new_key">Key:</label><br>
+          <textarea id="new_key" cols="68" rows="12" ></textarea><br>
+          </p>
+        </fieldset>
+      </form>
+    </div>
+    <div id="db" ></div>
+    <div id="ca" class="nav-content" >
+      <form id="ca_x509" action="javascript:void(0);" >
+        <fieldset>
+          <legend>PEM Output:</legend>
+          <button id="gen_ca" class=' active' onclick="javascript:create_new_ca()">&uarr; Generate CA &darr;</button>
+          <p><label for="new_ca_crt">Certificate:</label><br>
+          <textarea id="new_ca_crt" cols="68" rows="12" ></textarea><br>
+          <p><label for="new_ca_key">Key:</label><br>
+          <textarea id="new_ca_key" cols="68" rows="12" ></textarea><br>
+        </fieldset>
+      </form>
+    </div>
+    <div id="crt" class="nav-content" >
+      <form id="crt_issue" action="javascript:void(0);" >
+        <fieldset>
+          <legend>PEM Output:</legend>
+          <button id="gen_crt" class=' active' onclick="javascript:create_new_cert()">&uarr; Generate CRT from CSR &darr;</button>
+          <p><label for="new_crt">Certtificate:</label><br>
+          <textarea id="new_crt" cols="68" rows="12" ></textarea><br>
+        </fieldset>
+      </form>
+    </div>
+</div>
+
+  <link href="js/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+  <script src="js/gridjs/dist/gridjs.umd.js"></script>
+  <script src="js/canvas-datagrid.js"></script>
+  <script src="js/pouchdb-7.2.1.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/x509.js"></script>
+  <script src="js/crypto.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=appStart" async defer></script>
+
+
+
+</body>
+</html>

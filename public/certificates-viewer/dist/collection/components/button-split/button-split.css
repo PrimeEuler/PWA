@@ -1,0 +1,57 @@
+:host {
+  box-sizing: border-box;
+}
+:host *, :host *:before, :host *:after {
+  box-sizing: inherit;
+}
+
+:host {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+.button_split_icon {
+  width: 7px;
+  height: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.button_split_with_icon {
+  width: 25px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.button_split_with_icon.m_open::part(base):before {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+}
+.button_split_action {
+  width: 100%;
+}
+.button_split_container {
+  position: absolute;
+  bottom: calc(100% + 1px);
+  left: 0;
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0px -2px 1px rgb(var(--pv-color-light-rgb)), 0px 0px 10px rgba(var(--pv-color-dark-rgb), 0.0241168);
+  z-index: 1;
+}
+.button_split > peculiar-button:first-of-type::part(base) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.button_split > peculiar-button:last-of-type::part(base) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.button_split > peculiar-button:not(:first-child) {
+  margin-left: -1px;
+}

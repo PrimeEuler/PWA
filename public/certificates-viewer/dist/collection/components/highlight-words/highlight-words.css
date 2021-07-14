@@ -1,0 +1,15 @@
+:host {
+  box-sizing: border-box;
+}
+:host *, :host *:before, :host *:after {
+  box-sizing: inherit;
+}
+
+:host {
+  display: inline;
+}
+
+::slotted(mark) {
+  background-color: rgba(247, 168, 49, 0.4);
+  background-color: rgba(var(--pv-color-attention-rgb), 0.4);
+}

@@ -1,0 +1,24 @@
+{
+  "entries": [
+    "./components/attribute-certificate-viewer/attribute-certificate-viewer.js",
+    "./components/button-split/button-split.js",
+    "./components/certificate-viewer/certificate-viewer.js",
+    "./components/certificates-viewer/certificates-viewer.js",
+    "./components/csr-viewer/csr-viewer.js",
+    "./components/button/button.js",
+    "./components/certificate-decoder/certificate-decoder.js",
+    "./components/certificate-summary/certificate-summary.js",
+    "./components/circular-progress/circular-progress.js",
+    "./components/highlight-words/highlight-words.js",
+    "./components/link/link.js",
+    "./components/text-hider/text-hider.js",
+    "./components/typography/typography.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.17.4",
+    "typescriptVersion": "3.9.7"
+  },
+  "collections": [],
+  "bundles": []
+}
