@@ -139,11 +139,7 @@ async function gen_cert(ca_pem, ca_private, csr_pem) {
 // return [ca, private_key]
 async function gen_ca(name){
   const algorithm  = {
-   name: "RSASSA-PKCS1-v1_5",      //+ ',DC=' + 'dps'
-24
-      //+ ',DC=' + 'ohio'
-25
-      //+ ',DC=' + 'gov'
+   name: "RSASSA-PKCS1-v1_5", 
    hash: "SHA-256",
    modulusLength: 4096,
    publicExponent: new Uint8Array([1, 0, 1])
